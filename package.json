@@ -1,12 +1,19 @@
 {
   "name": "ink-progress-bar-pacman",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "index.js",
   "repository": "https://github.com/tony-tsx/ink-progress-bar-pacman",
   "author": "Tony <tony.js@zoho.eu>",
-  "files": ["dist", "LICENSE"],
+  "files": [
+    "dist",
+    "LICENSE"
+  ],
   "license": "MIT",
-  "keywords": ["ink", "react", "pacman"],
+  "keywords": [
+    "ink",
+    "react",
+    "pacman"
+  ],
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "prepublish": "yarn build"

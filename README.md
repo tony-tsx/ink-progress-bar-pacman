@@ -2,7 +2,7 @@
 
 Progress bar pacman style
 
-![Alt Text](./docs/progress-bar-pacman.gif)
+![](./docs/progress-bar-pacman.gif)
 
 ## Install
 
