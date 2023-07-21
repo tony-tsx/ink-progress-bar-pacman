@@ -1,6 +1,7 @@
 import React, { FC, ReactNode, useEffect, useMemo, useState } from "react";
 import { Text, TextProps } from "ink";
-import { useId } from "./useId";
+import { useId } from "./useId.js";
+import { setInterval } from "timers";
 
 export interface ProgressBarPacmanProps extends TextProps {
   width: number
@@ -28,10 +29,19 @@ const ProgressBarPacman: FC<ProgressBarPacmanProps> = ({
     return Math.trunc(width * percent)
   }, [width, percent])
   const [pacman, setPacman] = useState(0)
+  const isDone = useMemo(() => percent >= 1, [percent])
 
   useEffect(() => {
-    setPacman(pacman => (pacman + 1) % pacmans.length)
-  }, [current])
+    if (isDone) return
+
+    const interval = setInterval(() => {
+      setPacman(pacman => (pacman + 1) % pacmans.length)
+    }, 600)
+
+    return () => {
+      clearInterval(interval)
+    }
+  }, [isDone])
 
   return (
     <Text {...props}>
